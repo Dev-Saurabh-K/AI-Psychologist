@@ -10,7 +10,7 @@ function chatHistory() {
   console.log(history);
   
   return (
-    <div className="flex-row border-r-2 border-[#fff1f121] bg-[#0a0a09]  h-screen rounded-b-xl font-mono">
+    <div className="flex-row border-r-2 border-[#fff1f121] bg-[#0a0a09]  h-screen rounded-b-xl font-mono hidden md:block">
       {/* <button onClick={addHistory}>hh</button> */}
       <div className="flex justify-center border-b-2 border-amber-600 rounded-2xl">
         <h1>Sessions</h1>
