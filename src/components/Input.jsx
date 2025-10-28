@@ -45,21 +45,21 @@ const ChatApp = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen w-screen">
+    <div className="flex flex-col h-screen w-screen font-mono bg-linear-to-r from-[#000000ea] to-[#00000000] ">
       {/* Header */}
-      <div className="p-4 bg-gray-800 text-lg font-semibold text-white shadow">
+      <div className="p-2 bg-[#e22d0000] rounded-xs text-center font-mono font-semibold text-[rgba(221,208,208)] text-2xl shadow ">
         AI Psychologist
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-3">
+      <div className="flex-1 overflow-y-auto p-4 space-y-3 ">
         {messages.map((msg, i) => (
           <div
             key={i}
             className={`p-3 rounded-xl max-w-md wrap-break-word ${
               msg.sender === "user"
-                ? "bg-blue-600 text-white ml-auto"
-                : "bg-gray-800 text-gray-100 mr-auto"
+                ? "bg-[rgba(221,208,208)] text-[rgba(226,45,0,0.7)] ml-auto hover:bg-amber-50 "
+                : "bg-[rgba(226,45,0,0.7)] text-[rgba(221,208,208)] mr-auto hover:bg-amber-500"
             }`}
           >
             {msg.text}
@@ -69,25 +69,20 @@ const ChatApp = () => {
       </div>
 
       {/* Input */}
-      <div className="p-4 bg-gray-900 flex items-center gap-2">
+      <div className="p-2 bg-[rgba(221,208,208)] text-[rgba(226,45,0,1)] flex items-center gap-2 rounded-2xl">
         <input
+
           autoFocus
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Type a message..."
-          className="flex-1 p-3 bg-gray-800 text-white rounded-lg outline-none"
+          className="flex-1 p-3 text-[rgba(226,45,0,1)] bg-[rgba(221,208,208)] rounded-lg outline-none text-2xl"
           autoComplete="off"
+          
         />
-        <Button
-          variant="contained"
-          endIcon={<SendIcon />}
-          onClick={sendMessage}
-          className="h-12"
-        >
-          Send
-        </Button>
+          <div onClick={sendMessage} className="h-12 mt-auto text-2xl cursor-pointer"><SendIcon fontSize="large"/></div>
       </div>
     </div>
   );
