@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
 
 const url=import.meta.env.VITE_API_URL||'http://localhost:3001';
-console.log(url)
+// console.log(url)
 const socket = io(url);
 
 const ChatApp = () => {
