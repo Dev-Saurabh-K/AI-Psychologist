@@ -1,4 +1,5 @@
 import './login.css';
+import { Link } from 'react-router-dom';
 
 function Login() {
   return (
@@ -28,9 +29,10 @@ function Login() {
               className="focus:outline-none focus:bg-[rgba(226,45,0,0.6)]  text-[rgba(221,208,208,0.89)] rounded-md p-2 outline-none focus:ring-1 focus:ring-orange-300"
             />
           </label>
-          <button type="submit" className="font-bold text-2xl ">
+          <Link to={'/chat'}><button type='submit' className="font-bold text-2xl ">
             LogIn
-          </button>
+          </button></Link>
+          
         </form>
       </div>
       <div className="bg-[rgba(221,208,208,0.89)] p-4 w-2/6 h-2/3 shadow rounded-2xl  text-[rgba(226,45,0,0.6)] font-mono font-bold text-2xl text-center flex flex-col hover:bg-amber-50">
