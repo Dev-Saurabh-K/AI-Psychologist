@@ -3,7 +3,7 @@ import SendIcon from "@mui/icons-material/Send";
 import { useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
 
-const url=import.meta.env.VITE_API_URL
+const url='https://ai-psychologist-server.onrender.com';
 const socket = io(url);
 
 const ChatApp = () => {
