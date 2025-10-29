@@ -14,7 +14,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:3001/login", {
+      const res = await axios.post("https://ai-psychologist-server.onrender.com/login", {
         username,
         password,
       });
@@ -32,7 +32,7 @@ function Login() {
     e.preventDefault();
     // console.log(username,password)
     try {
-      const res = await axios.post("http://localhost:3001/signup", {
+      const res = await axios.post("https://ai-psychologist-server.onrender.com/signup", {
         username,
         password,
       });
@@ -44,7 +44,6 @@ function Login() {
       console.error(err);
       setMessage(err.response?.data?.message || "Something went wrong");
     }
-
   }
   return (
     <>
