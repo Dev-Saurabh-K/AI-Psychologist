@@ -14,7 +14,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("https://ai-psychologist-server.onrender.com/login", {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/login`, {
         username,
         password,
       });
@@ -32,7 +32,7 @@ function Login() {
     e.preventDefault();
     // console.log(username,password)
     try {
-      const res = await axios.post("https://ai-psychologist-server.onrender.com/signup", {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, {
         username,
         password,
       });
@@ -47,7 +47,7 @@ function Login() {
   }
   return (
     <>
-      <div className="flex flex-wrap shrink-0 items-center h-screen w-full justify-center ">
+      <div className="flex flex-wrap shrink-0 items-center h-screen w-full justify-center bg-linear-to-r from-[#000000ea] to-[#00000000]">
         {/* blur-xs hover:blur-none transition duration-300 ------apply when finish styling*/}
         <div className="bg-[rgba(226,45,0,0.7)] text-[rgba(221,208,208)] shadow w-1/5 min-w-96 h-2/3 rounded-2xl font-bold text-center duration-300 hover:bg-amber-600 transition-transform  ">
           <h1 className="mt-8 mb-0 pb-0 text-2xl font-mono">
