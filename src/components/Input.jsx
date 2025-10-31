@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import { useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
+import axios from "axios";
 
 const url =
   window.location.hostname === "localhost"
@@ -15,6 +16,7 @@ const ChatApp = () => {
   const [messages, setMessages] = useState([]);
   const chatEndRef = useRef(null);
 
+  
   useEffect(() => {
     socket.on("receive_message", (data) => {
       setMessages((prev) => [
@@ -23,9 +25,12 @@ const ChatApp = () => {
         { text: data.reply, sender: "ai" },
       ]);
     });
-
+    
     return () => socket.off("receive_message");
   }, []);
+  
+  //added afterwards
+  
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -44,11 +49,15 @@ const ChatApp = () => {
     }
   };
 
+
   return (
+    <>
+    <div>
+    </div>
     <div className="flex flex-col h-screen w-screen font-mono bg-linear-to-r from-[#000000ea] to-[#00000000] ">
       {/* Header */}
-      <div className="p-2 bg-[#e22d0000] rounded-xs text-center font-mono font-semibold text-[rgba(221,208,208)] text-2xl shadow ">
-        AI Psychologist
+      <div className="p-2 bg-[#e22d0000] rounded-xs flex justify-between font-mono font-semibold text-[rgba(221,208,208)] text-2xl shadow ">
+        <h1>AI Psychologist </h1>        
       </div>
 
       {/* Messages */}
@@ -71,7 +80,6 @@ const ChatApp = () => {
       {/* Input */}
       <div className="p-2 bg-[rgba(221,208,208)] text-[rgba(226,45,0,1)] flex items-center gap-2 rounded-2xl">
         <input
-
           autoFocus
           type="text"
           value={message}
@@ -80,11 +88,16 @@ const ChatApp = () => {
           placeholder="Type a message..."
           className="flex-1 p-3 text-[rgba(226,45,0,1)] bg-[rgba(221,208,208)] rounded-lg outline-none text-2xl"
           autoComplete="off"
-          
         />
-          <div onClick={sendMessage} className="h-12 mt-auto text-2xl cursor-pointer"><SendIcon fontSize="large"/></div>
+        <div
+          onClick={sendMessage}
+          className="h-12 mt-auto text-2xl cursor-pointer"
+        >
+          <SendIcon fontSize="large" />
+        </div>
       </div>
     </div>
+    </>
   );
 };
 

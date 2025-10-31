@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+// import axios from "axios";
+
+axios.defaults.withCredentials = true;
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -14,14 +17,18 @@ function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/login`, {
-        username,
-        password,
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/login`,
+        { username, password },
+        { withCredentials: true }
+      );
       // console.log(res.data.password)
       setMessage(res.data.message);
       console.log("Response:", res.data);
+      
+      
       navigate("/chat");
+      
     } catch (err) {
       console.error(err);
       setMessage(err.response?.data?.message || "Something went wrong");
