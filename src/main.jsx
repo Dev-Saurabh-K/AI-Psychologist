@@ -6,11 +6,14 @@ import App from "./App.jsx";
 import Login from "./components/login.jsx";
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import NotFoundPage from "./components/NotFoundPage.jsx";
+import Signup from "./components/signup.jsx";
 import Dashboard from "./components/Dashboard.jsx";
 import UserDashboard from "./components/UserDashboard.jsx";
 
+
 const router = createBrowserRouter([
-  { path: "/", element: <Login /> },
+  { path: "/login", element: <Login /> },
+  { path: "/", element:<Signup/>},
   { path: "/chat", element: <App /> },
   { path: "*", element: <NotFoundPage/>},
   { path: "/dashboard", element: <Dashboard/>},
