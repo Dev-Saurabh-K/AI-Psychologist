@@ -64,6 +64,9 @@ function Signup() {
             </label>
             <button type="submit">SignUp</button>
           </form>
+          <div>
+            already registered? <Link to={"/login"}>login from here</Link>
+          </div>
         </div>
       </div>
     </>
