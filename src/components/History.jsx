@@ -18,12 +18,12 @@ function chatHistory() {
 
   //gvggguih
   const removeHistory = async (value) => {
-    try {
-      const res = await axios.post(`${url}/session/remove`, {
-        session: value,
-      });
-    } catch {}
-    // setHistory(history.filter((item)=>item!==value));  fornt end logic for deletion
+    // try {
+    //   const res = await axios.post(`${url}/session/remove`, {
+    //     session: value,
+    //   });
+    // } catch {}
+    setHistory(history.filter((item)=>item!==value));  
     console.log(value);
   };
 
